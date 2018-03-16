@@ -86,7 +86,7 @@ sap.ui.define([
 				 rowCount=1;
 				}*/
 				 if(sSelectedProperty){
-				 	
+				 	console.log("Test");
 				 }
     				 modelData.push({"propertyName" : "" , "propertyValue" : ""});  
     				 this.getOwnerComponent().getModel("jSelectedTableProperties").setData(modelData);
