@@ -76,6 +76,7 @@ sap.ui.define([
 			fnAddProperty:function(oEvent){
 				var sTableId = this.getView().byId("tableProperties");
 				var modelData = this.getOwnerComponent().getModel("jSelectedTableProperties").getData();
+				var sSelectedProperty = this.getView().byId("propComboBox").getSelectedKey();
 				var rowCount;
 				/*if(modelData.results !== null || modelData.results!==undefined){
 				 rowCount   = modelData.results.length;
@@ -84,10 +85,11 @@ sap.ui.define([
 				else{
 				 rowCount=1;
 				}*/
-				 
-    			 modelData.push({"propertyName" : "" , "propertyValue" : ""});  
+				 if(sSelectedProperty){
+				 	
+				 }
+    				 modelData.push({"propertyName" : "" , "propertyValue" : ""});  
     				 this.getOwnerComponent().getModel("jSelectedTableProperties").setData(modelData);
-    			//	sTableId.setModel(tempAddModel);
     				 this.getOwnerComponent().getModel("jSelectedTableProperties").updateBindings();
 			}
 			

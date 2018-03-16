@@ -11,7 +11,7 @@
 						<WizardStep id="sIdTableProperties" title="Add Properties" complete="goToPaymentStep" icon="sap-icon://provision">
 							<VBox>
 								<HBox>
-								<ComboBox selectionChange="fnHandleSelectionChange" selectionFinish="handleSelectionFinish"
+								<ComboBox id="propComboBox" selectionChange="fnHandleSelectionChange" selectionFinish="handleSelectionFinish"
 									items="{ path: 'jSapUITable>/', sorter: { path: 'name' } }">
 									<core:Item key="{jSapUITable>name}" text="{jSapUITable>name}"/>
 								</ComboBox>
