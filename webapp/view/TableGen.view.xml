@@ -1,0 +1,50 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table"
+	controllerName="com.naresh.Z_AUTOCODEGENERATOR.controller.TableGen" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+	<NavContainer id="wizardNavContainer" class="sapUiSizeCompact">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<Wizard id="sIdTableWizard" complete="completedHandler" enableBranching="true">
+						<WizardStep id="sIdTableGeneral" nextStep="sIdTableProperties" title="General Details" complete="goToTableProperties"
+							icon="sap-icon://table-view"></WizardStep>
+						<WizardStep id="sIdTableProperties" title="Add Properties" complete="goToPaymentStep" icon="sap-icon://provision">
+							<VBox>
+								<HBox>
+								<ComboBox selectionChange="fnHandleSelectionChange" selectionFinish="handleSelectionFinish"
+									items="{ path: 'jSapUITable>/', sorter: { path: 'name' } }">
+									<core:Item key="{jSapUITable>name}" text="{jSapUITable>name}"/>
+								</ComboBox>
+								<Button text="Add New" icon="sap-icon://add" press="fnAddProperty"></Button>
+								</HBox>
+								<Text text="{jCommonTable>/PropertyDesc}"/>
+								<table:Table id="tableProperties" rows="{jSelectedTableProperties>/}" title="Products" selectionMode="MultiToggle" visibleRowCount="7">
+									<table:columns>
+										<table:Column width="11rem">
+											<Label text="Property Name"/>
+											<table:template>
+												<Text text="{propertyName}" wrapping="false"/>
+											</table:template>
+										</table:Column>
+										<table:Column width="11rem">
+											<Label text="Property Value"/>
+											<table:template>
+												<Input value="{propertyValue}"/>
+											</table:template>
+										</table:Column>
+									</table:columns>
+								</table:Table>
+							</VBox>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>
